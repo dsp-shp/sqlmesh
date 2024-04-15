@@ -16,6 +16,7 @@ from sqlmesh.core.engine_adapter.redshift import RedshiftEngineAdapter
 from sqlmesh.core.engine_adapter.snowflake import SnowflakeEngineAdapter
 from sqlmesh.core.engine_adapter.spark import SparkEngineAdapter
 from sqlmesh.core.engine_adapter.trino import TrinoEngineAdapter
+from sqlmesh.core.engine_adapter.clickhouse import ClickHouseEngineAdapter
 
 DIALECT_TO_ENGINE_ADAPTER = {
     "spark": SparkEngineAdapter,
@@ -28,6 +29,7 @@ DIALECT_TO_ENGINE_ADAPTER = {
     "mysql": MySQLEngineAdapter,
     "mssql": MSSQLEngineAdapter,
     "trino": TrinoEngineAdapter,
+    "clickhouse": ClickHouseEngineAdapter,
 }
 
 DIALECT_ALIASES = {

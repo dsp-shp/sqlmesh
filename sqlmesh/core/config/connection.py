@@ -1247,6 +1247,32 @@ class TrinoConnectionConfig(ConnectionConfig):
         }
 
 
+class ClickhouseConnectionConfig(ConnectionConfig):
+    host: str
+    user: str
+    password: str
+    port: int
+
+    concurrent_tasks: int = 4
+    register_comments: bool = True
+
+    type_: Literal["clickhouse"] = Field(alias="type", default="clickhouse")
+
+    @property
+    def _connection_kwargs_keys(self) -> t.Set[str]: 
+        return {"host", "user", "password", "port"}
+    
+    @property
+    def _engine_adapter(self) -> t.Type[EngineAdapter]: 
+        return engine_adapter.ClickHouseEngineAdapter
+
+    @property
+    def _connection_factory(self) -> t.Callable:
+        from clickhouse_driver import connect
+        
+        return connect
+
+
 CONNECTION_CONFIG_TO_TYPE = {
     # Map all subclasses of ConnectionConfig to the value of their `type_` field.
     tpe.all_field_infos()["type_"].default: tpe
