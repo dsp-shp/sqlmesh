@@ -47,7 +47,6 @@ setup(
         "rich[jupyter]",
         "ruamel.yaml",
         "sqlglot[rs]~=23.10.0",
-	"\"sqlmesh[web]\"==0.87.0",
 	"clickhouse-driver==0.2.7"
     ],
     extras_require={
