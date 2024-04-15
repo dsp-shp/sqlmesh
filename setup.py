@@ -47,6 +47,7 @@ setup(
         "rich[jupyter]",
         "ruamel.yaml",
         "sqlglot[rs]~=23.10.0",
+	"clickhouse-driver==0.2.7"
     ],
     extras_require={
         "bigquery": [
