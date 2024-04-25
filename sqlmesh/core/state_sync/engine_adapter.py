@@ -542,6 +542,8 @@ class EngineAdapterStateSync(CommonStateSyncMixin, StateSync):
         Returns:
             The list of Snapshot objects.
         """
+        import re 
+
         if not snapshots:
             return []
 
@@ -558,7 +560,7 @@ class EngineAdapterStateSync(CommonStateSyncMixin, StateSync):
 
             snapshot_rows.extend(self._fetchall(query))
 
-        return [Snapshot(**json.loads(row[0])) for row in snapshot_rows]
+        return [Snapshot(**json.loads(re.sub(r'\n[\t\ ]*', ' ', row[0], re.MULTILINE))) for row in snapshot_rows]
 
     def _get_versions(self, lock_for_update: bool = False) -> Versions:
         no_version = Versions()

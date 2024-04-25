@@ -25,11 +25,11 @@ setup(
             "sqlmesh_airflow = sqlmesh.schedulers.airflow.plugin:SqlmeshAirflowPlugin",
         ],
     },
-    use_scm_version={
-        "write_to": "sqlmesh/_version.py",
-        "fallback_version": "0.0.0",
-        "local_scheme": "no-local-version",
-    },
+    # use_scm_version={
+    #     "write_to": "sqlmesh/_version.py",
+    #     "fallback_version": "0.0.0",
+    #     "local_scheme": "no-local-version",
+    # },
     setup_requires=["setuptools_scm"],
     install_requires=[
         "astor",
