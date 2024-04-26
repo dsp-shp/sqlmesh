@@ -17,6 +17,7 @@ setup(
     packages=find_packages(
         include=["sqlmesh", "sqlmesh.*", "web*"]
     ),
+    version='0.87.0',
     package_data={"web": ["client/dist/**"], "": ["py.typed"]},
     entry_points={
         "console_scripts": [
