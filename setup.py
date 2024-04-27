@@ -17,7 +17,7 @@ setup(
     packages=find_packages(
         include=["sqlmesh", "sqlmesh.*", "web*"]
     ),
-    # setup_requires=['setuptools_scm'],
+    setup_requires=['setuptools_scm'],
     include_package_data=True,
     version='0.87.0',
     package_data={"web": ["client/dist/**"], "": ["py.typed"]},
